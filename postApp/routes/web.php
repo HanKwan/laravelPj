@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +18,16 @@ use App\Http\Controllers\auth\RegisterController;
 |
 */
 
+Route::get('/post', [PostController::class, 'index']);
+Route::post('/post', [PostController::class, 'store']);
+
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'store']);
 
-Route::get('/logout', [LogoutController::class, 'index']);
+Route::post('/logout', [LogoutController::class, 'index']);
 
 Route::get('/home', [HomeController::class, 'index']);
 

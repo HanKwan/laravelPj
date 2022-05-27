@@ -40,7 +40,7 @@
                 <label class="block mt-3" for="name">Confirm password</label>
                 <input type="password" class="border-2 p-1 mt-1" name="password_confirmation" id="password_confirmation">
 
-                <button type="submit" class="bg-blue-600 text-white py-1 px-2 block mt-3 w-full">Register</button>
+                <button type="submit" class="bg-blue-600 border-1 rounded text-white py-1 px-2 block mt-3 w-full">Register</button>
             </form>
         </div>
     </div>

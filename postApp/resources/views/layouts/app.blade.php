@@ -13,12 +13,15 @@
             <div>
                 <a href="/dashboard" class="pr-3"><span>Dashboard</span></a>
                 <a href="/home" class="pr-3"><span>Home</span></a>
-                <a href="" class="pr-3"><span>Post</span></a>
+                <a href="/post" class="pr-3"><span>Post</span></a>
             </div>
             <div>
                 @auth
-                    <a href="" class="pr-3"><span>Username</span></a>
-                    <a href="/logout" class="pr-3"><span>Logout</span></a>    
+                    <a href="" class="pr-3"><span>{{ auth()->user()->username }}</span></a>
+                    <form action="/logout" class="inline" method="post">
+                        @csrf
+                        <button type="submit" class="pr-3"><span>Logout</span></button>    
+                    </form>
                 @endauth
 
                 @guest
