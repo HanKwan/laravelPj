@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
 
 /*
@@ -15,7 +18,15 @@ use App\Http\Controllers\auth\RegisterController;
 */
 
 Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/', function () {
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'store']);
+
+Route::get('/logout', [LogoutController::class, 'index']);
+
+Route::get('/home', [HomeController::class, 'index']);
+
+Route::get('/dashboard', function () {
     return view('layouts.app');
 });

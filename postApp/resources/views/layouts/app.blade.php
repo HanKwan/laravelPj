@@ -11,15 +11,20 @@
     <div class="p-5 bg-white shadow-sm">
         <nav class="flex justify-between items-center">
             <div>
-                <a href="" class="pr-3"><span>Dashboard</span></a>
-                <a href="/" class="pr-3"><span>Home</span></a>
+                <a href="/dashboard" class="pr-3"><span>Dashboard</span></a>
+                <a href="/home" class="pr-3"><span>Home</span></a>
                 <a href="" class="pr-3"><span>Post</span></a>
             </div>
             <div>
-                <a href="/register" class="pr-3"><span>Register</span></a>
-                <a href="" class="pr-3"><span>Login</span></a>
-                <a href="" class="pr-3"><span>Username</span></a>
-                <a href="" class="pr-3"><span>Logout</span></a>
+                @auth
+                    <a href="" class="pr-3"><span>Username</span></a>
+                    <a href="/logout" class="pr-3"><span>Logout</span></a>    
+                @endauth
+
+                @guest
+                    <a href="/register" class="pr-3"><span>Register</span></a>
+                    <a href="/login" class="pr-3"><span>Login</span></a>
+                @endguest    
             </div>
         </nav>
     </div>
