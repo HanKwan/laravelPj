@@ -13,7 +13,7 @@
             <div>
                 <a href="/dashboard" class="pr-3"><span>Dashboard</span></a>
                 <a href="/home" class="pr-3"><span>Home</span></a>
-                <a href="/post" class="pr-3"><span>Post</span></a>
+                <a href="/posts" class="pr-3"><span>Post</span></a>
             </div>
             <div>
                 @auth
