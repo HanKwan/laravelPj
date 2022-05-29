@@ -13,6 +13,9 @@
             <div>
                 <a href="/dashboard" class="pr-3"><span>Dashboard</span></a>
                 <a href="/home" class="pr-3"><span>Home</span></a>
+                @auth
+                <a href="{{ route('profile', auth()->user()->username) }}" class="pr-3"><span>Profile</span></a>
+                @endauth
                 <a href="/posts" class="pr-3"><span>Post</span></a>
             </div>
             <div>

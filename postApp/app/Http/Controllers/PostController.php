@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -25,5 +26,11 @@ class PostController extends Controller
         ]);
 
         return redirect('/home');
+    }
+
+    public function destroy(Post $post) {
+        $this->authorize('delete', $post);
+        $post->delete();
+        return back();
     }
 }
