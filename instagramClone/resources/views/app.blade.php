@@ -16,10 +16,19 @@
                 <li class="pr-4"><a href="">Post</a></li>
             </ul>
             <ul class="py-4 px-6 flex">
-                <li class="pl-4"><a href="/register">Register</a></li>
-                <li class="pl-4"><a href="/login">Login</a></li>
-                <li class="pl-4"><a href="">Username</a></li>
-                <li class="pl-4"><a href="/logout">Logout</a></li>
+                @guest
+                    <li class="pl-4"><a href="/register">Register</a></li>
+                    <li class="pl-4"><a href="/login">Login</a></li>    
+                @endguest
+                @auth
+                    <li class="pl-4"><a href="">{{ auth()->user()->username }}</a></li>
+                    <li class="pl-4">
+                        <form action="/logout" method="post">
+                            @csrf
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
+                @endauth
             </ul>
         </nav>
     </div>

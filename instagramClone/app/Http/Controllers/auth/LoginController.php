@@ -20,5 +20,12 @@ class LoginController extends Controller
         if (!auth()->attempt($request->only('email', 'password'))) {
             return back()->with('status', 'Incorrect Login');
         }
+
+        return redirect('/profile/'.auth()->user()->username);
+    }
+
+    public function logout() {
+        auth()->logout();
+        return redirect('/login');
     }
 }
