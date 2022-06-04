@@ -6,7 +6,7 @@
             <div class="flex justify-center">
                 <span class="text-2xl font-bold">Insta</span>
             </div>
-            <form class="mt-3 mb-8" action="/login" method="post">
+            <form class="my-3" action="/login" method="post">
                 @csrf
                 @if (session()->has('status'))
                     <div class="text-red-400">{{ session('status') }}</div>

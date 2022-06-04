@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body class="bg-gray-100">
-    <div class="bg-white">
+    <div class="bg-white shadow-sm">
         <nav class="flex justify-between">
             <ul class="py-4 px-6 flex">
                 <li class="pr-4"><a href="/home">Home</a></li>
