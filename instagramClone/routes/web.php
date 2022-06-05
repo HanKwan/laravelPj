@@ -25,7 +25,7 @@ Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/profile/{user:username}/edit', [ProfileController::class, 'edit']);
-Route::post('/profile/{user}', [ProfileController::class, 'store']);
+Route::put('/profile/{user}', [ProfileController::class, 'store']);
 Route::get('/profile/{user:username}', [ProfileController::class, 'index']);
 
 Route::get('/', function () {

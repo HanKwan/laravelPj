@@ -30,6 +30,6 @@ class RegisterController extends Controller
 
         auth()->attempt($request->only('email', 'password'));
 
-        return redirect('/profile');
+        return redirect('/profile/'.auth()->user()->username);
     }
 }

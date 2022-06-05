@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use GuzzleHttp\Promise\Create;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -26,6 +27,16 @@ class User extends Authenticatable
 
     public function profile() {
         return $this->hasOne(Profile::class);
+    }
+
+    public static function boot() {
+        parent::boot();
+
+        static::create(function ($user) {
+            $user->profile()->create([
+                'bio' => ''
+            ]);
+        });
     }
 
     /**
