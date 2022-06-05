@@ -29,7 +29,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function store(User $user, Request $request) {
+    public function update(User $user, Request $request) {
         $this->authorize('update', $user->profile);
 
         $data = request()->validate([

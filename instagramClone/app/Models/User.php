@@ -29,13 +29,11 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
-    public static function boot() {
+    protected static function boot() {
         parent::boot();
 
-        static::create(function ($user) {
-            $user->profile()->create([
-                'bio' => ''
-            ]);
+        static::created(function ($user) {
+            $user->profile()->create();
         });
     }
 

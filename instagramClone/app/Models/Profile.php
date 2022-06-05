@@ -11,6 +11,10 @@ class Profile extends Model
 
     protected $fillable = ['bio', 'url'];
 
+    // public function nonImage() {
+    //     return ($this->profileImage) ? '/storage/' . $this->profileImage : 'images/no-profile.jpg';
+    // }
+
     public function user() {
         return $this->belongsTo(User::class);
     }
