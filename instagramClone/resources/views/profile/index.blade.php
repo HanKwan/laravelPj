@@ -25,10 +25,12 @@
                 </div>
             </div>
         </div>
-        <div>
-            <div class="grid grid-cols-3">
-
-            </div>
+    </div>
+    <div class="flex justify-center mt-10">
+        <div class="grid grid-cols-3 gap-5 w-10/12">
+            @foreach ($user->posts as $post)
+                <div><a href=""><img src="{{ asset('storage/' . $post->postImage) }}" class="w-full h-full"></a></div>                
+            @endforeach
         </div>
     </div>
 @endsection

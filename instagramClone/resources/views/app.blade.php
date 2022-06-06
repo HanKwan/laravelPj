@@ -12,8 +12,10 @@
         <nav class="flex justify-between">
             <ul class="py-4 px-6 flex">
                 <li class="pr-4"><a href="/home">Home</a></li>
-                <li class="pr-4"><a href="">Profile</a></li>
-                <li class="pr-4"><a href="">Post</a></li>
+                @auth
+                    <li class="pr-4"><a href="{{ route('profile.index', auth()->user()->username) }}">Profile</a></li>
+                @endauth
+                <li class="pr-4"><a href="/posts/create">Post</a></li>
             </ul>
             <ul class="py-4 px-6 flex">
                 @guest

@@ -18,7 +18,7 @@
                 <label for="url">Url</label>
                 <input class="py-1 px-2 w-full mb-6 border-2 rounded" type="text" value="{{$user->profile->url ?? null}}" name="url" id="url">
                 
-                <button type="submit" class="bg-blue-400 block text-white py-1 px-2 border-1 rounded">Save profile</button>
+                <button type="submit" class="bg-blue-400 block text-white py-1 px-3 border-1 rounded">Save profile</button>
             </form>
         </div>
     </div>

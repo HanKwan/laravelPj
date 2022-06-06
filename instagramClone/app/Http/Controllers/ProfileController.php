@@ -16,7 +16,7 @@ class ProfileController extends Controller
     }
     
     public function index(User $user) {
-        return view('layouts.profile', [
+        return view('profile.index', [
             'user' => $user,
         ]);
     }
@@ -24,7 +24,7 @@ class ProfileController extends Controller
     public function edit(User $user) {
         $this->authorize('update', $user->profile);
         
-        return view('layouts.edit', [
+        return view('profile.edit', [
             'user' => $user,
         ]);
     }
