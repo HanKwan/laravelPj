@@ -14,7 +14,7 @@
                     @endcan
                 </div>
                 <div class="flex justify-between w-7/12">
-                    <span><strong>1</strong> post</span>
+                    <span><strong>{{ $user->posts->count() }}</strong> {{ Str::plural('post', $user->posts->count()) }}</span>
                     <span><strong>1</strong> follower</span>
                     <span><strong>1</strong> following</span>
                 </div>
@@ -29,7 +29,7 @@
     <div class="flex justify-center mt-10">
         <div class="grid grid-cols-3 gap-5 w-10/12">
             @foreach ($user->posts as $post)
-                <div><a href=""><img src="{{ asset('storage/' . $post->postImage) }}" class="w-full h-full"></a></div>                
+                <div><a href="/posts/{{ $post->id }}"><img src="{{ asset('storage/' . $post->postImage) }}" class="w-full h-full"></a></div>                
             @endforeach
         </div>
     </div>

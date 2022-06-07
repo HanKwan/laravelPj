@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostLikeController;
+use App\Models\Post;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
@@ -31,6 +33,11 @@ Route::get('/profile/{user:username}', [ProfileController::class, 'index'])->nam
 
 Route::get('/posts/create', [PostController::class, 'create']);
 Route::post('/posts', [PostController::class, 'store']);
+Route::get('/posts/{post}', [PostController::class, 'show']);
+Route::delete('/posts/{post}', [PostController::class, 'destroy']);
+
+Route::post('/posts/{post}/likes', [PostLikeController::class, 'store']);
+Route::delete('/posts/{post}/unlikes', [PostLikeController::class, 'destroy']);
 
 Route::get('/', function () {
     return view('app');
