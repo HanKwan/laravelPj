@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['postImage', 'caption', 'profile_id', 'user_id'];
+    protected $fillable = ['postImage', 'caption'];
 
     public function likedBy(User $user) {                       // need to be written above relationships or wont work
         return $this->likes->contains('user_id', $user->id);

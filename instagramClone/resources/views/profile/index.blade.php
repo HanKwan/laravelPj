@@ -9,6 +9,7 @@
             <div class="grid grid-rows-3 col-span-2 p-6">
                 <div class="flex justify-between items-center">
                     <div class="font-md text-3xl">{{ $user->name }}</div>
+
                     @can('update', $user->profile)
                         <a href="/profile/{{$user->username}}/edit">Edit Profile</a>
                     @endcan

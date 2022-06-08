@@ -33,7 +33,7 @@
                                 @endif
                                 
                                 <span>{{ $post->likes->count() }} {{ Str::plural('like', $post->likes->count()) }}</span>
-                                
+
                                 @can('delete', $post)
                                     <form class="mt-8 float-right" action="/posts/{{ $post->id }}" method="post">
                                         @csrf
