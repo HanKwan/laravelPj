@@ -16,7 +16,7 @@
                 </div>
                 <div class="flex justify-between w-7/12">
                     <span><strong>{{ $user->posts->count() }}</strong> {{ Str::plural('post', $user->posts->count()) }}</span>
-                    <span><strong>1</strong> follower</span>
+                    <span><strong>0</strong> follower</span>
                     <span><strong>1</strong> following</span>
                 </div>
                 <div>
