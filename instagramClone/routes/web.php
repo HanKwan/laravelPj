@@ -38,6 +38,7 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 
 Route::post('/posts/{post}/likes', [PostLikeController::class, 'store']);
 Route::delete('/posts/{post}/unlikes', [PostLikeController::class, 'destroy']);
+Route::get('/likes/{post}', [PostLikeController::class, 'show']);
 
 Route::get('/', function () {
     return view('app');
