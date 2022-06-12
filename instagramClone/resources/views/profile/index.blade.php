@@ -8,7 +8,21 @@
             </div>
             <div class="grid grid-rows-3 col-span-2 p-6">
                 <div class="flex justify-between items-center">
-                    <div class="font-md text-3xl">{{ $user->name }}</div>
+                    <div class="flex mb-2">
+                        <div class="font-md text-3xl mr-4">{{ $user->name }}</div>
+                        
+                        @if (!$user->profile->followBy($user))
+                            <form action="/follow/{{ $user->id }}" method="post">
+                                @csrf
+                                <button class="py-1 px-2 text-white bg-blue-400 border-1 rounded" type="submit">Follow</button>
+                            </form>
+                        @else
+                            <form action="/unfollow/{{ $user->id }}" method="post">
+                                @csrf
+                                <button class="py-1 px-2 text-white bg-blue-400 border-1 rounded" type="submit">Unfollow</button>
+                            </form>
+                        @endif
+                    </div>
 
                     @can('update', $user->profile)
                         <a href="/profile/{{$user->username}}/edit">Edit Profile</a>
@@ -16,8 +30,8 @@
                 </div>
                 <div class="flex justify-between w-7/12">
                     <span><strong>{{ $user->posts->count() }}</strong> {{ Str::plural('post', $user->posts->count()) }}</span>
-                    <span><strong>0</strong> follower</span>
-                    <span><strong>1</strong> following</span>
+                    <span><strong>0</strong> followers</span>
+                    <span><strong>{{ $user->following->count() }}</strong> following</span>
                 </div>
                 <div>
                     <div class="font-bold">{{ $user->username }}</div>

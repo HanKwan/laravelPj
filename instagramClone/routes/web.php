@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikeController;
 use App\Models\Post;
@@ -39,6 +40,9 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 Route::post('/posts/{post}/likes', [PostLikeController::class, 'store']);
 Route::delete('/posts/{post}/unlikes', [PostLikeController::class, 'destroy']);
 Route::get('/likes/{post}', [PostLikeController::class, 'show']);
+
+Route::post('/follow/{user}', [FollowsController::class, 'store']);
+Route::post('/unfollow/{user}', [FollowsController::class, 'destroy']);
 
 Route::get('/', function () {
     return view('app');
