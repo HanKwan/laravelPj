@@ -14,9 +14,14 @@ class ProfileController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function index() {
+        $users = User::all();
+        return view('profile.index', ['users' => $users]);
+    }
     
-    public function index(User $user) {
-        return view('profile.index', [
+    public function show(User $user) {
+        return view('profile.show', [
             'user' => $user,
         ]);
     }
