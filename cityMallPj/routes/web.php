@@ -14,4 +14,7 @@ use App\Http\Controllers\ProductsController;
 |
 */
 
+// fresh
+Route::get('/fresh', [ProductsController::class, 'show']);
+
 Route::get('/', [ProductsController::class, 'index']);
