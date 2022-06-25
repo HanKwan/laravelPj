@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('freshes', function (Blueprint $table) {
             $table->id();
             $table->string('prop');
+            $table->string('prop_img');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

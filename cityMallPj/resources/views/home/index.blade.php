@@ -26,30 +26,16 @@
     <div class="container-lg mt-5">
         <h4>Categories</h4>
         <div class="row text-center justify-content-center g-4">
-            <a href="/fresh" class="text-decoration-none text-dark col-md-3 d-flex justify-content-center col-sm-5 col-9" style="height: 267px;">
-                <div class="card" style="width: 13rem;">
-                    <img class="card-img-top" src="/images/categories/fresh/freshimg.jpg" alt="Card image cap">
-                    <div class="card-body justify-content-center p-0 align-items-center d-flex">
-                        <h4 class="card-text">Fresh</h4>
+            @foreach ($categories as $category)
+                <a href="/{{ $category->type }}" class="text-decoration-none text-dark col-md-3 d-flex justify-content-center col-sm-5 col-9">
+                    <div class="card" style="width: 13rem;">
+                        <img class="card-img-top" src="{{ $category->cate_image }}" alt="Card image cap">
+                        <div class="card-body justify-content-center p-0 align-items-center d-flex">
+                            <h4 class="card-text">{{ $category->type }}</h4>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="#" class="text-decoration-none text-dark col-md-3 col-sm-5 col-9 d-flex justify-content-center" style="height: 267px;">
-                <div class="card" style="width: 13rem;">
-                    <img class="card-img-top" src="/images/categories/alcohols/alcohol.jpg" alt="Card image cap">
-                    <div class="card-body justify-content-center p-0 align-items-center d-flex">
-                        <h5 class="card-text">Beer,Wind & Tabacco</h5>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="text-decoration-none text-dark col-md-3 col-sm-5 d-flex justify-content-center" style="height: 267px;">
-                <div class="card" style="width: 13rem;">
-                    <img class="card-img-top" src="/images/categories/fashions/fashion.jpg" alt="Card image cap">
-                    <div class="card-body justify-content-center p-0 align-items-center d-flex">
-                        <h4 class="card-text">Fashion</h4>
-                    </div>
-                </div>
-            </a>
+                </a>    
+            @endforeach            
         </div>
     </div>
 @endsection
