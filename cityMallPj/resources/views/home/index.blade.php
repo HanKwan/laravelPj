@@ -27,8 +27,8 @@
         <h4>Categories</h4>
         <div class="row text-center justify-content-center g-4">
             @foreach ($categories as $category)
-                <a href="/{{ $category->type }}" class="text-decoration-none text-dark col-md-3 d-flex justify-content-center col-sm-5 col-9">
-                    <div class="card" style="width: 13rem;">
+                <a href="/{{ $category->type }}" class="text-decoration-none text-dark col-md-4 d-flex justify-content-center col-sm-5 col-9">
+                    <div class="card" style="width: 14rem;">
                         <img class="card-img-top" src="{{ $category->cate_image }}" alt="Card image cap">
                         <div class="card-body justify-content-center p-0 align-items-center d-flex">
                             <h4 class="card-text">{{ $category->type }}</h4>

@@ -12,4 +12,8 @@ class Fresh extends Model
     public function category() {
         return $this->belongsTo(Categories::class);
     }
+
+    public function freshProducts() {
+        return $this->hasMany(FreshProduct::class);
+    }
 }

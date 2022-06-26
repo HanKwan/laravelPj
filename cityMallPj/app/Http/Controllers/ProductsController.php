@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Fresh;
+use App\Models\FreshProduct;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -19,12 +20,9 @@ class ProductsController extends Controller
     }
 
     public function indexGreen() {
-        $veges = Fresh::find(1);
-        $fruits = Fresh::find(2);
-        // dd($veges);
+        $freshProducts = FreshProduct::all();
         return view('fresh.showGreen', [
-            'veges' => $veges,
-            'fruits' => $fruits,
+            'freshProducts' => $freshProducts,
         ]);
     }
 }

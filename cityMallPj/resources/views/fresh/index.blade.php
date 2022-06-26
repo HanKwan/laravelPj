@@ -1,15 +1,30 @@
 @extends('app')
 
 @section('content')
-    <div class="bg-secondary p-2 text-center text-white">
-        <h3>Fresh product, Meat, Dairy & Eggs</h3>
+    <div class="bg-secondary p-3 text-center text-white">
+        <span class="h3">Fresh product, Meat, Dairy & Eggs</span>
     </div>
 
     <div class="container-lg">
         <div class="mt-3 row g-5">
+            {{-- filter --}}
             <div class="col-4 d-md-block d-none">
-                <x-filter /> 
+                <form class="border rounded">
+                    <div class="py-2 px-3 d-flex justify-content-between align-items-center">
+                        <span>Filter</span>
+                        <button type="submit" class="btn btn-primary btn-sm">Apply</button>
+                    </div>
+                    <div class="px-3 py-2">
+                        <div>
+                            <input class="me-1" type="checkbox" value="">Brand
+                        </div>
+                        <div>
+                            <input class="me-1" type="checkbox" value="">Prize Range
+                        </div>
+                    </div>
+                </form>
             </div>
+            {{-- poster and products --}}
             <div class="col-md-8">
                 <div>
                     <img class="img-fluid" src="/images/categories/fresh/freshPoster.jpg">
