@@ -19,10 +19,17 @@ class ProductsController extends Controller
         return view('fresh.index', ['categories' => $categories]);
     }
 
-    public function indexGreen() {
+    public function indexGreen(Request $request) {
         $freshProducts = FreshProduct::all();
+        $freshes = Fresh::all();
+        // dd($request);
+        if($request->has('produceType')) {
+            $checked = $_GET['produceType'];
+            $freshProducts = FreshProduct::whereIn('fresh_id', $checked)->get();
+        }
         return view('fresh.showGreen', [
             'freshProducts' => $freshProducts,
+            'freshes' => $freshes,
         ]);
     }
 }

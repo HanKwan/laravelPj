@@ -8,18 +8,23 @@
     <div class="container-lg">
         <div class="mt-3 row g-5">
             <div class="col-4 d-md-block d-none">
-                <form class="border rounded">
+                <form action="{{ URL::current() }}" method="get" class="border rounded">
                     <div class="py-2 px-3 d-flex justify-content-between align-items-center">
                         <span>Filter</span>
                         <button type="submit" class="btn btn-primary btn-sm">Apply</button>
                     </div>
                     <div class="px-3 py-2">
-                        <div>
-                            <input class="me-1" type="checkbox" value="">Fruit
-                        </div>
-                        <div>
-                            <input class="me-1" type="checkbox" value="">Vegetable
-                        </div>
+                        @foreach ($freshes as $fresh)
+                            @php
+                                $checked = [];
+                                if(isset($_GET['produceType'])) {
+                                    $checked = $_GET['produceType']; 
+                                }
+                            @endphp
+                            <div>
+                                <input class="me-1" name="produceType[]" type="checkbox" value="{{ $fresh->id }}" @if (in_array($fresh->id, $checked)) checked @endif>{{ $fresh->prop }}
+                            </div>
+                        @endforeach
                     </div>
                 </form>
             </div>
