@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Fresh extends Model
+class FreshMeat extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class Fresh extends Model
         return $this->belongsTo(Categories::class);
     }
 
-    public function freshProducts() {
-        return $this->hasMany(FreshProduct::class);
+    public function freshMeatProducts() {
+        return $this->hasMany(FreshMeatProduct::class);
     }
 }

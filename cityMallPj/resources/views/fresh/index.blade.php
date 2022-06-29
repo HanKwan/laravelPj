@@ -41,7 +41,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="text-decoration-none text-dark col-md-3 col-sm-4 col-7 d-flex justify-content-center">
+                    <a href="/Fresh/Meat" class="text-decoration-none text-dark col-md-3 col-sm-4 col-7 d-flex justify-content-center">
                         <div class="card" style="width: 13rem;">
                             <img class="card-img-top" src="/images/categories/fresh/meat.jpg" alt="Card image cap">
                             <div class="card-body justify-content-center p-0 align-items-center d-flex">

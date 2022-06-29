@@ -17,5 +17,6 @@ use App\Http\Controllers\ProductsController;
 // fresh
 Route::get('/{category:type}', [ProductsController::class, 'show']);
 Route::get('/Fresh/Produce', [ProductsController::class, 'indexGreen']);
+Route::get('/Fresh/Meat', [ProductsController::class, 'indexMeat']);
 
 Route::get('/', [ProductsController::class, 'index']);

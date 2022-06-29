@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('freshes', function (Blueprint $table) {
+        Schema::create('fresh_greens', function (Blueprint $table) {
             $table->id();
             $table->string('prop');
-            $table->string('prop_img');
+            $table->string('prop_img')->nullable();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('freshes');
+        Schema::dropIfExists('fresh_greens');
     }
 };

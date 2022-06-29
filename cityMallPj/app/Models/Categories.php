@@ -13,7 +13,11 @@ class Categories extends Model
         return $this->hasMany(Fresh::class);
     }
 
-    public function freshProducts() {
-        return $this->hasManyThrough(FreshProduct::class, Fresh::class);
+    public function freshGreenProducts() {
+        return $this->hasManyThrough(FreshGreenProduct::class, FreshGreen::class);
+    }
+
+    public function freshMeatProducts() {
+        return $this->hasManyThrough(FreshMeatProduct::class, FreshMeat::class);
     }
 }
