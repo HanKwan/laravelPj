@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
-use App\Models\FreshGreen;
+use App\Models\fresh\FreshGreen;
 use Illuminate\Http\Request;
-use App\Models\FreshMeatProduct;
-use App\Models\FreshGreenProduct;
-use App\Models\FreshMeat;
+use App\Models\fresh\FreshMeatProduct;
+use App\Models\fresh\FreshGreenProduct;
+use App\Models\fresh\FreshMeat;
+use App\Models\fresh\GreenBrand;
+use App\Models\fresh\MeatBrand;
 
 class ProductsController extends Controller
 {
@@ -27,6 +29,7 @@ class ProductsController extends Controller
     public function indexGreen(Request $request) {
         $freshGreenProducts = FreshGreenProduct::all();
         $freshGreens = FreshGreen::all();
+        $greenBrands = GreenBrand::all();
         if($request->has('produceType')) {
             $checked = $_GET['produceType'];
             $freshGreenProducts = FreshGreenProduct::whereIn('fresh_green_id', $checked)->get();
@@ -34,6 +37,7 @@ class ProductsController extends Controller
         return view('fresh.showGreen', [
             'freshGreenProducts' => $freshGreenProducts,
             'freshGreens' => $freshGreens,
+            'greenBrands' => $greenBrands,
         ]);
     }
 
@@ -41,16 +45,22 @@ class ProductsController extends Controller
     public function indexMeat(Request $request) {
         $freshMeatProducts = FreshMeatProduct::all();
         $freshMeats = FreshMeat::all();
-        // foreach($freshMeatProducts as $product) {
-        //     dd($product->brand_name);
-        // }
+        $meatBrands = MeatBrand::all();
         if($request->has('meatType')) {
             $checked = $_GET['meatType'];
             $freshMeatProducts = FreshMeatProduct::whereIn('fresh_meat_id', $checked)->get();
-        }
+            if($request->has('brandType')) {
+                $secondChecked = $_GET['brandType'];
+                $freshMeatProducts = FreshMeatProduct::whereIn('brand_name', $secondChecked)->get();
+            }
+        } else if($request->has('brandType')) {
+            $secondChecked = $_GET['brandType'];
+            $freshMeatProducts = FreshMeatProduct::whereIn('brand_name', $secondChecked)->get();
+        } 
         return view('fresh.showMeat', [
             'freshMeatProducts' => $freshMeatProducts,
             'freshMeats' => $freshMeats,
+            'meatBrands' => $meatBrands,
         ]);
     }
 }

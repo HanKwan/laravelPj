@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models\fresh;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class FreshGreen extends Model
+{
+    use HasFactory;
+
+    public function category() {
+        return $this->belongsTo(Categories::class);
+    }
+
+    public function freshGreenProducts() {
+        return $this->hasMany(FreshGreenProduct::class);
+    }
+}

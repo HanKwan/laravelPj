@@ -14,25 +14,77 @@
                         <button type="submit" class="btn btn-primary btn-sm">Apply</button>
                     </div>
                     <div class="px-3 py-2">
-                        @foreach ($freshGreens as $fresh)
-                            @php
-                                $checked = [];
-                                if(isset($_GET['produceType'])) {
-                                    $checked = $_GET['produceType']; 
-                                }
-                            @endphp
-                            <div>
-                                <input class="me-1" name="produceType[]" type="checkbox" value="{{ $fresh->id }}" 
-                                @if (in_array($fresh->id, $checked)) checked @endif>
-                                {{ $fresh->prop }}
+                        {{-- type filter --}}
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item w-60">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button shadow-none py-1 px-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Type
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        @if ($freshGreens->count())
+                                            @foreach ($freshGreens as $fresh)
+                                                @php
+                                                    $checked = [];
+                                                    if(isset($_GET['produceType'])) {
+                                                        $checked = $_GET['produceType']; 
+                                                    }
+                                                @endphp
+                                                <div>
+                                                    <input class="me-1" name="produceType[]" type="checkbox" value="{{ $fresh->id }}" 
+                                                    @if (in_array($fresh->id, $checked)) checked @endif>
+                                                    {{ $fresh->prop }}
+                                                </div>
+                                            @endforeach    
+                                        @else
+                                            <span>No Type</span>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
-                        @endforeach
+                        </div>
+
+                        {{-- brand filter --}}
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item w-60">
+                                <h2 class="accordion-header" id="headingtwo">
+                                    <button class="accordion-button shadow-none py-1 px-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
+                                        Brand
+                                    </button>
+                                </h2>
+                                <div id="collapsetwo" class="accordion-collapse collapse" aria-labelledby="headingtwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        @if ($greenBrands->count())
+                                            @foreach ($greenBrands as $brand)
+                                                @php
+                                                    $checked = [];
+                                                    if(isset($_GET['brandType'])) {
+                                                        $checked = $_GET['brandType']; 
+                                                    }
+                                                @endphp
+                                                <div>
+                                                    <input class="me-1" name="brandType[]" type="checkbox" value="{{ $brand->id }}" 
+                                                    @if (in_array($brand->id, $checked)) checked @endif>
+                                                    {{ $brand->brand_name }}
+                                                </div>
+                                            @endforeach    
+                                        @else
+                                            <span>No Brand</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
+
             <div class="col-md-8">
                 <h3 class="mb-3 text-danger">{{ $freshGreenProducts->count() }} Results Founded</h3>
 
+                {{-- individual green products --}}
                 <div class="row text-center justify-content-md-start justify-content-center g-2">
                         @foreach ($freshGreenProducts as $product)
                             <div class="text-decoration-none text-dark col-md-4 d-flex justify-content-center col-sm-4 col-9">
