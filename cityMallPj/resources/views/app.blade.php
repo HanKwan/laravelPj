@@ -41,7 +41,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Login/Sign up</a>
+                        <a href="/register&login" class="nav-link">Login/Sign up</a>
                     </li>
                     <li class="nav-item ms-4">
                         <a href="#" class="nav-link"><span><i class="bi bi-basket"></i></span></a>
