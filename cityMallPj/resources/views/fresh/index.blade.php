@@ -16,14 +16,12 @@
                     </div>
                     <div class="px-3 py-2">
                         <div>
-                            <input class="me-1" type="checkbox" value="">Brand
-                        </div>
-                        <div>
-                            <input class="me-1" type="checkbox" value="">Prize Range
+                            <input class="me-1" type="checkbox" value="">Optional
                         </div>
                     </div>
                 </form>
             </div>
+            
             {{-- poster and products --}}
             <div class="col-md-8">
                 <div>

@@ -35,7 +35,7 @@
                                                 <div>
                                                     <input class="me-1" name="meatType[]" type="checkbox" value="{{ $fresh->id }}" 
                                                     @if (in_array($fresh->id, $checked)) checked @endif>
-                                                    {{ $fresh->prop }}
+                                                    {{ $fresh->type }}
                                                 </div>
                                             </div>
                                         @endforeach
@@ -100,13 +100,9 @@
                                                 <span>{{ $product->prize }} Ks</span>
                                             </div>
                                         </div>
-                                        <form action="">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span style="font-size: 25px;"><i class="bi bi-dash-circle"></i></span>
-                                                <span>1</span>
-                                                <span style="font-size: 25px;"><i class="bi bi-plus-circle"></i></span>
-                                            </div>
-                                            <button class="bg-primary w-100 text-white border border-primary rounded-pill" type="submit">Add To Cart</button>
+                                        <form class="text-start mx-2" action="">
+                                            <input class="shadow-none my-2 w-50" type="number" name="quantity" min="1" value="1">
+                                            <button class="bg-primary border-0 w-100 text-white rounded border-primary py-2" type="submit">Add To Cart</button>
                                         </form>
                                     </div>
                                 </div>

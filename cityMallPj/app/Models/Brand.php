@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\fresh;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FreshGreen extends Model
+class Brand extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class FreshGreen extends Model
         return $this->belongsTo(Categories::class);
     }
 
-    public function freshGreenProducts() {
-        return $this->hasMany(FreshGreenProduct::class);
+    public function products() {
+        return $this->hasMany(Product::class);
     }
 }

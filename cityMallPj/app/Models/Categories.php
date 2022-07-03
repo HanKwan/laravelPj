@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\fresh\FreshGreen;
-use App\Models\fresh\FreshMeat;
 use App\Models\fresh\GreenBrand;
 use App\Models\fresh\MeatBrand;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,27 +11,15 @@ class Categories extends Model
 {
     use HasFactory;
 
-    public function freshGreens() {
-        return $this->hasMany(FreshGreen::class);
+    public function productTypes() {
+        return $this->hasMany(ProductType::class);
     }
 
-    public function freshMeats() {
-        return $this->hasMany(FreshMeat::class);
+    public function barnds() {
+        return $this->hasMany(Brand::class);
     }
 
-    public function greenBrands() {
-        return $this->hasMany(GreenBrand::class);
-    }
-
-    public function meatBrands() {
-        return $this->hasMany(MeatBrand::class);
-    }
-
-    public function freshGreenProducts() {
-        return $this->hasManyThrough(FreshGreenProduct::class, FreshGreen::class);
-    }
-
-    public function freshMeatProducts() {
-        return $this->hasManyThrough(FreshMeatProduct::class, FreshMeat::class);
+    public function products() {
+        return $this->hasManyThrough(Product::class, ProductType::class);
     }
 }
