@@ -52,7 +52,7 @@
                         </li>
                     @endguest
                     <li class="nav-item ms-4">
-                        <a href="#" class="nav-link"><span><i class="bi bi-basket"></i></span></a>
+                        <a href="/cart" class="nav-link"><span><i class="bi bi-basket"></i> Cart</span></a>
                     </li>
                 </ul>
             </div>

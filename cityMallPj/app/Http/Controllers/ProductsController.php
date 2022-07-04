@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Categories;
 use App\Models\ProductType;
@@ -30,6 +31,7 @@ class ProductsController extends Controller
 
     // for fresh green
     public function indexGreen(Request $request) {
+        $carts = Cart::all();
         $freshGreenProducts = Product::whereIn('product_type_id', [1, 2])->get();
         $freshGreens = ProductType::whereIn('id', [1, 2])->get();
         // $greenBrands = Brand::all();
@@ -47,11 +49,13 @@ class ProductsController extends Controller
         return view('fresh.showGreen', [
             'freshGreenProducts' => $freshGreenProducts,
             'freshGreens' => $freshGreens,
+            'carts' => $carts,
         ]);
     }
 
     // for fresh meat
     public function indexMeat(Request $request) {
+        $carts = Cart::all();
         $freshMeatProducts = Product::whereIn('product_type_id', [3, 4, 5])->get();
         $freshMeats = ProductType::whereIn('id', [3, 4, 5])->get();
         $meatBrands = Brand::whereIn('id', [1, 2])->get();
@@ -70,10 +74,7 @@ class ProductsController extends Controller
             'freshMeatProducts' => $freshMeatProducts,
             'freshMeats' => $freshMeats,
             'meatBrands' => $meatBrands,
+            'carts' => $carts,
         ]);
-    }
-
-    public function store(Request $request,Product $product) {
-        dd($request->quantity);
     }
 }

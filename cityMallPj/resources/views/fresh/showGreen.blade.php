@@ -103,13 +103,10 @@
                                                     <span>{{ $product->prize }} Ks</span>
                                                 </div>
                                             </div>
-                                            <form class="text-start mx-2" action="/Fresh/Produce/{{ $product->id }}" method="post">
+                                            <form class="text-start px-2" action="/cart/{{ $product->id }}" method="post">
                                                 @csrf
-                                                {{-- <button class="border-0 shadow-none bg-white" style="font-size: 25px;"><i class="bi bi-dash-circle"></i></button> --}}
-                                                {{-- <input type="hidden" value="{{ $product->id }}"> --}}
-                                                <input class="shadow-none my-2 w-50" type="number" name="quantity" min="1" value="1">
-                                                {{-- <button class="border-0 shadow-none bg-white" style="font-size: 25px;"><i class="bi bi-plus-circle"></i></button> --}}
-                                                <button class="bg-primary w-100 text-white border-0 border-primary rounded py-2" type="submit">Add To Cart</button>
+                                                <input class="shadow-none border my-2 w-50" type="number" name="quantity" min="1" value="1">
+                                                <button class="bg-primary border-0 w-100 text-white rounded border-primary py-2" type="submit">Add To Cart</button>
                                             </form>
                                         </div>
                                     </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,12 @@ Route::get('/logout', [LogoutController::class, 'logout']);
 Route::post('/login', [LoginController::class, 'store']);
 Route::get('/login', [LoginController::class, 'index']);
 
+Route::get('/cart', [CartController::class, 'index']);
+Route::post('/cart/{product}', [CartController::class, 'store']);
+Route::delete('/cart/remove/{cart}', [CartController::class, 'destroy']);
+
 Route::get('/', [ProductsController::class, 'index']);
 
 Route::get('/Fresh/Produce', [ProductsController::class, 'indexGreen']);
 Route::get('/Fresh/Meat', [ProductsController::class, 'indexMeat']);
-Route::post('/Fresh/Produce/{product}', [ProductsController::class, 'store']);
 Route::get('/{category:type}', [ProductsController::class, 'show']);

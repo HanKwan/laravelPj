@@ -100,8 +100,9 @@
                                                 <span>{{ $product->prize }} Ks</span>
                                             </div>
                                         </div>
-                                        <form class="text-start mx-2" action="">
-                                            <input class="shadow-none my-2 w-50" type="number" name="quantity" min="1" value="1">
+                                        <form class="text-start px-2" action="/cart/{{ $product->id }}" method="post">
+                                            @csrf
+                                            <input class="shadow-none border my-2 w-50" type="number" name="quantity" min="1" value="1">
                                             <button class="bg-primary border-0 w-100 text-white rounded border-primary py-2" type="submit">Add To Cart</button>
                                         </form>
                                     </div>
