@@ -40,9 +40,17 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="/register&login" class="nav-link">Login/Sign up</a>
-                    </li>
+                    @auth
+                        <li class="nav-item">
+                            <a href="/logout" class="nav-link">Logout</a>
+                        </li>
+                    @endauth
+
+                    @guest
+                        <li class="nav-item">
+                            <a href="/login" class="nav-link">Login/Sign up</a>
+                        </li>
+                    @endguest
                     <li class="nav-item ms-4">
                         <a href="#" class="nav-link"><span><i class="bi bi-basket"></i></span></a>
                     </li>
