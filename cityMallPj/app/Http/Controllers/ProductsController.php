@@ -8,19 +8,18 @@ use App\Models\Product;
 use App\Models\Categories;
 use App\Models\ProductType;
 use Illuminate\Http\Request;
-use App\Models\fresh\FreshMeat;
-use App\Models\fresh\MeatBrand;
-use App\Models\fresh\FreshGreen;
-use App\Models\fresh\GreenBrand;
-use App\Models\fresh\FreshMeatProduct;
-use App\Models\fresh\FreshGreenProduct;
+use Gloudemans\Shoppingcart\Facades\Cart as FacadesCart;
 
 class ProductsController extends Controller
 {
     // home
     public function index() {
         $categories = Categories::all();
-        return view('home.index', ['categories' => $categories]);
+        $cart = FacadesCart::content();
+        return view('home.index', [
+            'categories' => $categories,
+            'cart' => $cart,
+        ]);
     }
 
     // show fresh
@@ -31,7 +30,7 @@ class ProductsController extends Controller
 
     // for fresh green
     public function indexGreen(Request $request) {
-        $carts = Cart::all();
+        $cart = FacadesCart::content();
         $freshGreenProducts = Product::whereIn('product_type_id', [1, 2])->get();
         $freshGreens = ProductType::whereIn('id', [1, 2])->get();
         // $greenBrands = Brand::all();
@@ -49,13 +48,13 @@ class ProductsController extends Controller
         return view('fresh.showGreen', [
             'freshGreenProducts' => $freshGreenProducts,
             'freshGreens' => $freshGreens,
-            'carts' => $carts,
+            'cart' => $cart,
         ]);
     }
 
     // for fresh meat
     public function indexMeat(Request $request) {
-        $carts = Cart::all();
+        $cart = FacadesCart::content();
         $freshMeatProducts = Product::whereIn('product_type_id', [3, 4, 5])->get();
         $freshMeats = ProductType::whereIn('id', [3, 4, 5])->get();
         $meatBrands = Brand::whereIn('id', [1, 2])->get();
@@ -74,7 +73,7 @@ class ProductsController extends Controller
             'freshMeatProducts' => $freshMeatProducts,
             'freshMeats' => $freshMeats,
             'meatBrands' => $meatBrands,
-            'carts' => $carts,
+            'cart' => $cart,
         ]);
     }
 }

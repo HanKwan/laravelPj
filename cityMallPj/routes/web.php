@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\auth\LoginController;
@@ -29,6 +30,8 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::get('/cart', [CartController::class, 'index']);
 Route::post('/cart/{product}', [CartController::class, 'store']);
 Route::delete('/cart/remove/{cart}', [CartController::class, 'destroy']);
+Route::put('/cart/quantity/update/{cart}', [CartController::class, 'update']);
+
 
 Route::get('/', [ProductsController::class, 'index']);
 

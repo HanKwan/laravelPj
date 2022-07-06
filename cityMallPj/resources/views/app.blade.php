@@ -52,7 +52,7 @@
                         </li>
                     @endguest
                     <li class="nav-item ms-4">
-                        <a href="/cart" class="nav-link"><span><i class="bi bi-basket"></i> Cart</span></a>
+                        <a href="/cart" class="nav-link"><span><i class="bi bi-basket me-1"></i>Cart ({{ Gloudemans\Shoppingcart\Facades\Cart::content()->count() }})</span></a>
                     </li>
                 </ul>
             </div>

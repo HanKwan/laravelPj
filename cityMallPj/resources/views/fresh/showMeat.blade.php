@@ -97,14 +97,18 @@
                                                 <span>{{ $product->weight }} Grams</span>
                                             </div>
                                             <div class="text-primary text-sm">
-                                                <span>{{ $product->prize }} Ks</span>
+                                                <span>{{ $product->price }} Ks</span>
                                             </div>
                                         </div>
-                                        <form class="text-start px-2" action="/cart/{{ $product->id }}" method="post">
-                                            @csrf
-                                            <input class="shadow-none border my-2 w-50" type="number" name="quantity" min="1" value="1">
-                                            <button class="bg-primary border-0 w-100 text-white rounded border-primary py-2" type="submit">Add To Cart</button>
-                                        </form>
+                                        @if ($cart->where('id', $product->id)->count())
+                                            <div class="text-white bg-secondary py-2 border-secondary rounded">In cart</div>
+                                        @else
+                                            <form class="text-start px-2" action="/cart/{{ $product->id }}" method="post">
+                                                @csrf
+                                                <input class="shadow-none border my-2 w-50" type="number" name="quantity" min="1" value="1">
+                                                <button class="bg-primary border-0 w-100 text-white rounded border-primary py-2" type="submit">Add To Cart</button>
+                                            </form>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
