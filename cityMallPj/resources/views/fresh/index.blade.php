@@ -1,12 +1,13 @@
 @extends('app')
 
 @section('content')
-    <div class="bg-secondary p-3 text-center text-white">
+    <div class="bg-secondary p-3 text-center text-white mb-3">
         <span class="h3">Fresh product, Meat, Dairy & Eggs</span>
     </div>
+    <div><a class="fs-5 text-decoration-none" href="/"><- Back</a></div>
 
-    <div class="container-lg">
-        <div class="mt-3 row g-5">
+    <div class="container-lg mt-3">
+        <div class="row g-5">
             {{-- filter --}}
             <div class="col-4 d-md-block d-none">
                 <form class="border rounded">

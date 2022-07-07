@@ -1,14 +1,22 @@
 @extends('app')
 
 @section('content')
-    <div class="bg-secondary p-3 text-center text-white">
+    <div class="bg-secondary p-3 text-center text-white mb-3">
         <span class="h3">Meat, Poultry & Fishery</span>
     </div>
 
+    @if (session()->has('message'))
+        <div class="bg-success text-white h3 text-center py-3">
+            {{ session('message') }}
+        </div>
+    @endif
+    <div><a class="fs-5 text-decoration-none" href="/Fresh"><- Back</a></div>
+
+    
     <div class="container-lg">
-        <div class="mt-3 row g-5">
+        <div class="row g-5">
             <div class="col-4 d-md-block d-none">
-                <form action="{{ URL::current() }}" method="get" class="border rounded">
+                <form action="{{ URL::current() }}" method="get" class="border rounded mt-3">
                     <div class="py-2 px-3 d-flex justify-content-between align-items-center">
                         <span>Filter</span>
                         <button type="submit" class="btn btn-primary btn-sm">Apply</button>

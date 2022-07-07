@@ -27,6 +27,7 @@ Route::get('/logout', [LogoutController::class, 'logout']);
 Route::post('/login', [LoginController::class, 'store']);
 Route::get('/login', [LoginController::class, 'index']);
 
+Route::get('/purchase', [CartController::class, 'purchase']);
 Route::get('/cart', [CartController::class, 'index']);
 Route::post('/cart/{product}', [CartController::class, 'store']);
 Route::delete('/cart/remove/{cart}', [CartController::class, 'destroy']);
