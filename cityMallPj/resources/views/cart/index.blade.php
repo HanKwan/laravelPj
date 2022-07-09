@@ -28,7 +28,7 @@
                                     <form action="/cart/quantity/update/{{ $cart->rowId }}" method="post">
                                         @csrf
                                         @method('PUT')
-                                        <input style="width: 50px;" name="quantity" type="number" min="1" value="@php echo $cart->qty @endphp">  {{-- dont forget name --}}
+                                        <input style="width: 50px;" class="" name="quantity" type="number" min="1" value="@php echo $cart->qty @endphp">  {{-- dont forget name --}}
                                         <button class="btn btn-sm btn-primary" type="submit">Update</button>
                                     </form>
                                 </td>
@@ -37,7 +37,7 @@
                                     <form action="/cart/remove/{{ $cart->rowId }}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm text-white">Remove</button>
+                                        <button class="bg-white shadow-none border-0"><i class="bi bi-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>                            

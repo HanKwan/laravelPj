@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    @yield('style')
     <title>City Mall (clone)</title>
 </head>
 <body>
@@ -22,15 +23,17 @@
                 <i class="bg-light bi bi-search"></i>
             </button>
 
-            <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+            <div class="offcanvas offcanvas-top d-md-none" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
                 <div class="offcanvas-header">
-                    <div class="offcanvas-body" id="offcanvasTopLabel">
-                        <form class="d-flex ms-md-5" role="search">
-                            <input class="form-control w-60 me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-sm btn-outline-success" type="submit">Search</button>
-                        </form>
-                    </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    Search
+                </div>
+
+                <div class="offcanvas-body d-flex justify-content-between align-items-center" id="offcanvasTopLabel">
+                    <form class="d-flex ms-md-5 h-50" role="search" style="width: 35em">
+                        <input class="form-control me-2" type="search" aria-label="Search">
+                        <button class="btn btn-sm btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <button type="button" class="btn-close d-sm-block d-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
             </div>
 
@@ -41,17 +44,17 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                 <ul class="navbar-nav">
                     @auth
-                        <li class="nav-item">
+                        <li class="nav-item me-4">
                             <a href="/logout" class="nav-link">Logout</a>
                         </li>
                     @endauth
 
                     @guest
-                        <li class="nav-item">
+                        <li class="nav-item me-4">
                             <a href="/login" class="nav-link">Login/Sign up</a>
                         </li>
                     @endguest
-                    <li class="nav-item ms-4">
+                    <li class="nav-item">
                         <a href="/cart" class="nav-link"><span><i class="bi bi-basket me-1"></i>Cart ({{ Gloudemans\Shoppingcart\Facades\Cart::content()->count() }})</span></a>
                     </li>
                 </ul>

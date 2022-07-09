@@ -9,9 +9,8 @@
             {{ session('message') }}
         </div>
     @endif
-    <div><a class="fs-5 text-decoration-none" href="/Fashion"><- Back</a></div>
+    <div><a class="fs-5 text-decoration-none" href="/"><- Back</a></div>
 
-    
     <div class="container-lg">
         <div class="row g-5">
             <div class="col-4 d-md-block d-none">
@@ -86,7 +85,11 @@
                 </form>
             </div>
             <div class="col-md-8">
-                <h3 class="mb-3 text-danger">{{ $fashionProducts->count() }} Results Founded</h3>
+                <div>
+                    <img class="img-fluid" src="/images/categories/fashions/fashionPoster.jpg">
+                </div>
+
+                <h3 class="my-3 text-danger">{{ $fashionProducts->count() }} Results Founded</h3>
 
                 {{-- individual meat products --}}
                 <div class="row text-center justify-content-md-start justify-content-center g-2">

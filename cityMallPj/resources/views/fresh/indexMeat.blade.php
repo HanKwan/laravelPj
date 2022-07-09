@@ -86,13 +86,17 @@
                     </div>
                 </form>
             </div>
-            <button class="d-md-none bg-dark text-white text-center fixed-bottom py-2 w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#secoffcanvasTop" aria-controls="offcanvasTop">
+            <button class="d-md-none bg-dark text-white text-center fixed-bottom py-2 w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 <div>Filter</div>
             </button>
 
-            <div class="offcanvas offcanvas-top" tabindex="-1" id="secoffcanvasTop" aria-labelledby="offcanvasTopLabel">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 20em">
                 <div class="offcanvas-header">
-                    <div class="" id="offcanvasTopLabel">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filter</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div>
                         <form action="{{ URL::current() }}" method="get" class="border rounded mt-3">
                             <div class="py-2 px-3 d-flex justify-content-between align-items-center">
                                 <span>Filter</span>
@@ -161,11 +165,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </form> 
+                        </form>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
             </div>
+              
             
             <div class="col-md-8">
                 <h3 class="mb-3 text-danger">{{ $freshMeatProducts->count() }} Results Founded</h3>

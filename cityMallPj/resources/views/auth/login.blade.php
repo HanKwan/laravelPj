@@ -3,7 +3,7 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-5">
-            <div class="mt-4 fs-6 mb-3 w-100">
+            <div class="mt-4 fs-6 mb-3 w-100 px-3 p-md-0">
                 <h4>Returning Customer</h4>
                 <span class="text-muted ">Already have an account? Sign in to retrieve your account settings.</span>
             </div>
@@ -14,7 +14,7 @@
                 @endif
                 <div class="mb-2">
                     <label for="email">Email</label><br>
-                    <input class="w-100 @error('email') border-danger @enderror" type="email" name="email" id="email" value="{{ old('email') }}">
+                    <input class="w-100 border @error('email') border-danger @enderror" type="email" name="email" id="email" value="{{ old('email') }}">
                     @error('email')
                         <div class="fs-6 text-danger">
                             {{ $message }}
@@ -24,7 +24,7 @@
 
                 <div class="mb-2">
                     <label for="password">Password</label><br>
-                    <input class="w-100 @error('password') border-danger @enderror" type="password" name="password" id="password">
+                    <input class="w-100 border @error('password') border-danger @enderror" type="password" name="password" id="password">
                     @error('password')
                         <div class="fs-6 text-danger">
                             {{ $message }}
