@@ -23,9 +23,44 @@ class ProductsController extends Controller
     }
 
     // show fresh
-    public function show() {
+    public function showFresh() {
         $categories = Categories::all();
-        return view('fresh.index', ['categories' => $categories]);
+        return view('fresh.index', compact('categories'));  // dont need it btw
+    }
+
+    // show alcohol
+    public function showAlcohol() {
+        return view('alcohol.index');
+    }
+
+    // show fashion
+    public function showFashion(Request $request) {
+        $cart = FacadesCart::content();
+        $fashionProducts = Product::whereIn('product_type_id', [6, 7])->get();
+        $clothTypes = ProductType::whereIn('id', [6, 7])->get();
+        $clothBrands = Brand::whereIn('id', [3, 4])->get();
+        
+        if($request->has('wearType', 'brandType')) {
+            $checked = $_GET['wearType'];
+            $secondChecked = $_GET['brandType'];
+            $fashionProducts = Product::whereIn('product_type_id', $checked)
+                ->whereIn('brand_name', $secondChecked)->get();
+
+        }  else if($request->has('wearType')) {
+            $checked = $_GET['wearType'];
+            $fashionProducts = Product::whereIn('product_type_id', $checked)->get();
+
+        }else if($request->has('brandType')) {
+            $secondChecked = $_GET['brandType'];
+            $fashionProducts = Product::whereIn('brand_name', $secondChecked)->get();
+        }
+
+        return view('fashion.index', compact(
+            'cart',
+            'fashionProducts',
+            'clothTypes',
+            'clothBrands',
+        ));
     }
 
     // for fresh green
@@ -35,23 +70,26 @@ class ProductsController extends Controller
         $freshGreens = ProductType::whereIn('id', [1, 2])->get();
         // $greenBrands = Brand::all();
 
-        if($request->has('produceType')) {
+        if($request->has('produceType', 'brandType')) {
+            $checked = $_GET['produceType'];
+            $secondChecked = $_GET['brandType'];
+            $freshGreenProducts = Product::whereIn('product_type_id', $checked)
+                ->whereIn('brand_name', $secondChecked)->get();
+        
+        } else if($request->has('produceType')) {
             $checked = $_GET['produceType'];
             $freshGreenProducts = Product::whereIn('product_type_id', $checked)->get();
-            if($request->has('brandType')) {
-                $secondChecked = $_GET['brandType'];
-                $freshGreenProducts = Product::whereIn('brand_name', $secondChecked)->get();
-            }
+
         } else if($request->has('brandType')) {
             $secondChecked = $_GET['brandType'];
             $freshGreenProducts = Product::whereIn('brand_name', $secondChecked)->get();
         }
         
-        return view('fresh.showGreen', [
-            'freshGreenProducts' => $freshGreenProducts,
-            'freshGreens' => $freshGreens,
-            'cart' => $cart,
-        ]);
+        return view('fresh.indexGreen', compact(
+            'freshGreenProducts',
+            'freshGreens', 
+            'cart',
+        ));
     }
 
     // for fresh meat
@@ -61,23 +99,26 @@ class ProductsController extends Controller
         $freshMeats = ProductType::whereIn('id', [3, 4, 5])->get();
         $meatBrands = Brand::whereIn('id', [1, 2])->get();
 
-        if($request->has('meatType')) {
+        if($request->has('meatType', 'brandType')) {
+            $checked = $_GET['meatType'];
+            $secondChecked = $_GET['brandType'];
+            $freshMeatProducts = Product::whereIn('product_type_id', $checked)
+                ->whereIn('brand_name', $secondChecked)->get();
+        
+        } else if($request->has('meatType')) {
             $checked = $_GET['meatType'];
             $freshMeatProducts = Product::whereIn('product_type_id', $checked)->get();
-            if($request->has('brandType')) {
-                $secondChecked = $_GET['brandType'];
-                $freshMeatProducts = Product::whereIn('brand_name', $secondChecked)->get();
-            }
+            
         } else if($request->has('brandType')) {
             $secondChecked = $_GET['brandType'];
             $freshMeatProducts = Product::whereIn('brand_name', $secondChecked)->get();
         }
 
-        return view('fresh.showMeat', [
-            'freshMeatProducts' => $freshMeatProducts,
-            'freshMeats' => $freshMeats,
-            'meatBrands' => $meatBrands,
-            'cart' => $cart,
-        ]);
+        return view('fresh.indexMeat', compact(
+            'freshMeatProducts',
+            'freshMeats',
+            'meatBrands',
+            'cart',
+        ));
     }
 }

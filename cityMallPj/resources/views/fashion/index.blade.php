@@ -2,15 +2,14 @@
 
 @section('content')
     <div class="bg-secondary p-3 text-center text-white mb-3">
-        <span class="h3">Meat, Poultry & Fishery</span>
+        <span class="h3">Fashion</span>
     </div>
-
     @if (session()->has('message'))
         <div class="bg-success text-white h3 text-center py-3">
             {{ session('message') }}
         </div>
     @endif
-    <div><a class="fs-5 text-decoration-none" href="/Fresh"><- Back</a></div>
+    <div><a class="fs-5 text-decoration-none" href="/Fashion"><- Back</a></div>
 
     
     <div class="container-lg">
@@ -32,18 +31,18 @@
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        @foreach ($freshMeats as $fresh)
+                                        @foreach ($clothTypes as $type)
                                             @php
                                                 $checked = [];
-                                                if(isset($_GET['meatType'])) {
-                                                    $checked = $_GET['meatType']; 
+                                                if(isset($_GET['wearType'])) {
+                                                    $checked = $_GET['wearType']; 
                                                 }
                                             @endphp
                                             <div>
                                                 <div>
-                                                    <input class="me-1" name="meatType[]" type="checkbox" value="{{ $fresh->id }}" 
-                                                    @if (in_array($fresh->id, $checked)) checked @endif>
-                                                    {{ $fresh->type }}
+                                                    <input class="me-1" name="wearType[]" type="checkbox" value="{{ $type->id }}" 
+                                                    @if (in_array($type->id, $checked)) checked @endif>
+                                                    {{ $type->type }}
                                                 </div>
                                             </div>
                                         @endforeach
@@ -62,8 +61,8 @@
                                 </h2>
                                 <div id="collapsetwo" class="accordion-collapse collapse" aria-labelledby="headingtwo" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        @if ($meatBrands->count())
-                                            @foreach ($meatBrands as $brand)
+                                        @if ($clothBrands->count())
+                                            @foreach ($clothBrands as $brand)
                                                 @php
                                                     $checked = [];
                                                     if(isset($_GET['brandType'])) {
@@ -87,11 +86,11 @@
                 </form>
             </div>
             <div class="col-md-8">
-                <h3 class="mb-3 text-danger">{{ $freshMeatProducts->count() }} Results Founded</h3>
+                <h3 class="mb-3 text-danger">{{ $fashionProducts->count() }} Results Founded</h3>
 
                 {{-- individual meat products --}}
                 <div class="row text-center justify-content-md-start justify-content-center g-2">
-                    @foreach ($freshMeatProducts as $product)
+                    @foreach ($fashionProducts as $product)
                         <div class="text-decoration-none text-dark col-md-4 d-flex justify-content-center col-sm-4 col-9">
                             <div class="card" style="width: 15rem;">
                                 <img class="card-img-top" src="{{ $product->product_img }}" alt="Card image cap">
@@ -100,9 +99,6 @@
                                         <div class="ps-2 text-start">
                                             <div class="fw-bold">
                                                 <span>{{ $product->product_name }}</span>
-                                            </div>
-                                            <div class="h-auto text-sm text-muted">
-                                                <span>{{ $product->weight }} Grams</span>
                                             </div>
                                             <div class="text-primary text-sm">
                                                 <span>{{ $product->price }} Ks</span>
