@@ -26,25 +26,33 @@
             {{-- poster and products --}}
             <div class="col-md-8">
                 <div>
-                    <img style="height: 300px; width: 550px;" class="img-fluid" src="/images/categories/alcohols/alcoholPoster.jpg">
+                    <img style="height: 300px; width: 550px;" class="img-fluid" src="/images/categories/alcohol/alcoholPoster.jpg">
                 </div>
 
                 <h3 class="my-3 text-danger">Beer, Wind & Tabacco</h3>
 
                 <div class="row text-center justify-content-start g-4">
-                    <a href="/Fresh/Produce" class="text-decoration-none text-dark col-md-3 d-flex justify-content-center col-sm-4 col-7">
+                    <a href="/Beer,Wind&Tabacco/beer" class="text-decoration-none text-dark col-md-3 d-flex justify-content-center col-sm-4 col-7">
                         <div class="card" style="width: 13rem;">
-                            <img class="card-img-top" src="/images/categories/fresh/green.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="/images/categories/alcohol/beer.jpg" alt="Card image cap">
                             <div class="card-body justify-content-center p-0 align-items-center d-flex">
-                                <span class="card-text">Produce</span>
+                                <span class="card-text">Beer</span>
                             </div>
                         </div>
                     </a>
-                    <a href="/Fresh/Meat" class="text-decoration-none text-dark col-md-3 col-sm-4 col-7 d-flex justify-content-center">
+                    <a href="/Beer,Wind&Tabacco/wine" class="text-decoration-none text-dark col-md-3 col-sm-4 col-7 d-flex justify-content-center">
                         <div class="card" style="width: 13rem;">
-                            <img class="card-img-top" src="/images/categories/fresh/meat.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="/images/categories/alcohol/wine.jpg" alt="Card image cap">
                             <div class="card-body justify-content-center p-0 align-items-center d-flex">
-                                <span class="card-text">Meat, Poultry & Fishery</span>
+                                <span class="card-text">Wine</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/Beer,Wind&Tabacco/cigarettes" class="text-decoration-none text-dark col-md-3 col-sm-4 col-7 d-flex justify-content-center">
+                        <div class="card" style="width: 13rem;">
+                            <img class="card-img-top" src="/images/categories/alcohol/cigarettes.jpg" alt="Card image cap">
+                            <div class="card-body justify-content-center p-0 align-items-center d-flex">
+                                <span class="card-text">Cigarettes</span>
                             </div>
                         </div>
                     </a>

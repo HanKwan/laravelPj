@@ -121,4 +121,51 @@ class ProductsController extends Controller
             'cart',
         ));
     }
+
+    // for beer
+    public function indexBeer(Request $request) {
+        $cart = FacadesCart::content();
+        $beerProducts = Product::whereIn('product_type_id', [8])->get();
+        $beerBrands = Brand::whereIn('id', [5, 6])->get();
+
+        if($request->has('brandType')) {
+            $Checked = $_GET['brandType'];
+            $beerProducts = Product::whereIn('brand_name', $Checked)->get();
+        }
+
+        return view('alcohol.indexBeer', compact(
+            'cart',
+            'beerProducts',
+            'beerBrands',
+        ));
+    }
+
+    // for wine
+    public function indexWine(Request $request) {
+        $cart = FacadesCart::content();
+        $wineProducts = Product::whereIn('product_type_id', [9])->get();
+
+        return view('alcohol.indexWine', compact(
+            'cart',
+            'wineProducts',
+        ));
+    }
+
+    // for cigarettes
+    public function indexCigarettes(Request $request) {
+        $cart = FacadesCart::content();
+        $cigaretteProducts = Product::whereIn('product_type_id', [10])->get();
+        $cigaretteBrands = Brand::whereIn('id', [7, 8])->get();
+
+        if($request->has('brandType')) {
+            $Checked = $_GET['brandType'];
+            $cigaretteProducts = Product::whereIn('brand_name', $Checked)->get();
+        }
+
+        return view('alcohol.indexCigarette', compact(
+            'cart',
+            'cigaretteProducts',
+            'cigaretteBrands',
+        ));
+    }
 }

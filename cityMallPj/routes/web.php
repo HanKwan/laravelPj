@@ -35,8 +35,11 @@ Route::put('/cart/quantity/update/{cart}', [CartController::class, 'update']);
 
 Route::get('/', [ProductsController::class, 'index']);
 
-Route::get('/Fashion', [ProductsController::class, 'showFashion']);
+Route::get('/Beer,Wind&Tabacco/cigarettes', [ProductsController::class, 'indexCigarettes']);
+Route::get('/Beer,Wind&Tabacco/wine', [ProductsController::class, 'indexWine']);
+Route::get('/Beer,Wind&Tabacco/beer', [ProductsController::class, 'indexBeer']);
 Route::get('/Beer,Wind&Tabacco', [ProductsController::class, 'showAlcohol']);
+Route::get('/Fashion', [ProductsController::class, 'showFashion']);
 Route::get('/Fresh/Produce', [ProductsController::class, 'indexGreen']);
 Route::get('/Fresh/Meat', [ProductsController::class, 'indexMeat']);
 Route::get('/Fresh', [ProductsController::class, 'showFresh']);
