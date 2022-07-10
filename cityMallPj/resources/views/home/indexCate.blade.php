@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container my-5">
-        <div class="row text-center">
-            <div class="col-4">
+        <div class="row text-center g-4 d-flex justify-content-center">
+            <div class="col-9 col-md-4">
                 <div class="border" style="height: 170px">
                     <div class="bg-secondary fs-5 py-2">
                         <a class="text-decoration-none text-white" href="/Fresh">Fresh</a>
@@ -14,8 +14,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="border" style="height: 170px">
+            <div class="col-9 col-md-4">
+                <div class="border" style="min-height: 170px">
                     <div class="bg-secondary text-white fs-5 py-2">
                         <a class="text-decoration-none text-white" href="/Beer,Wind&Tabacco">Beer, Wine & Tabacco</a>
                     </div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-9 col-md-4">
                 <div class="border" style="height: 170px">
                     <div class="bg-secondary text-white fs-5 py-2">
                         <a class="text-decoration-none text-white" href="/Fashion">Fashion</a>
