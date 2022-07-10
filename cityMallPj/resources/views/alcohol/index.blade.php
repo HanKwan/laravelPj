@@ -31,7 +31,7 @@
 
                 <h3 class="my-3 text-danger">Beer, Wind & Tabacco</h3>
 
-                <div class="row text-center justify-content-start g-4">
+                <div class="row text-center justify-content-center justify-content-md-start g-4">
                     <a href="/Beer,Wind&Tabacco/beer" class="text-decoration-none text-dark col-md-3 d-flex justify-content-center col-sm-4 col-7">
                         <div class="card" style="width: 13rem;">
                             <img class="card-img-top" src="/images/categories/alcohol/beer.jpg" alt="Card image cap">

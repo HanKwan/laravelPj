@@ -86,6 +86,7 @@
                     </div>
                 </form>
             </div>
+
             <button class="d-md-none bg-dark text-white text-center fixed-bottom py-2 w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 <div>Filter</div>
             </button>
@@ -169,10 +170,9 @@
                     </div>
                 </div>
             </div>
-              
-            
+                         
             <div class="col-md-8">
-                <h3 class="mb-3 text-danger">{{ $freshMeatProducts->count() }} Results Founded</h3>
+                <h3 class="mb-3 text-danger">{{ $freshMeatProducts->count() }} {{ Str::plural('Result', $freshMeatProducts->count()) }} Founded</h3>
 
                 {{-- individual meat products --}}
                 <div class="row text-center justify-content-md-start justify-content-center g-2">

@@ -10,12 +10,13 @@
     <title>City Mall (clone)</title>
 </head>
 <body>
+    {{-- navbar --}}
     <nav class="navbar navbar-expand-md bg-light">
         <div class="container-lg justify-content-between">
-            <a class="navbar-brand me-md-5 me-0" href="#">CityMall</a>
+            <a class="navbar-brand me-md-5 me-0" href="/">CityMall</a>
 
-            <form class="d-flex ms-md-5 d-none d-md-flex" role="search">
-                <input class="form-control w-80 me-2" type="search" placeholder="Search" aria-label="Search">
+            <form action="/search" class="d-flex ms-md-5 d-none d-md-flex" role="search">
+                <input class="form-control w-80 me-2" type="search" name="search" aria-label="Search">
                 <button class="btn btn-sm btn-outline-success" type="submit">Search</button>
             </form>
 
@@ -24,16 +25,15 @@
             </button>
 
             <div class="offcanvas offcanvas-top d-md-none" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                <div class="offcanvas-header">
+                <div class="offcanvas-header d-none d-md-block">
                     Search
                 </div>
 
                 <div class="offcanvas-body d-flex justify-content-between align-items-center" id="offcanvasTopLabel">
-                    <form class="d-flex ms-md-5 h-50" role="search" style="width: 35em">
-                        <input class="form-control me-2" type="search" aria-label="Search">
+                    <form action="/search" class="d-md-none d-flex w-100" role="search">
+                        <input class="form-control me-2" type="search" name="search" aria-label="Search">
                         <button class="btn btn-sm btn-outline-success" type="submit">Search</button>
                     </form>
-                    <button type="button" class="btn-close d-sm-block d-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
             </div>
 
@@ -41,6 +41,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            {{-- for login --}}
             <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                 <ul class="navbar-nav">
                     @auth
@@ -61,12 +62,12 @@
             </div>
         </div>
     </nav>
+
+    {{-- optional catagories --}}
     <div class="navbar navbar-expand bg-light">
         <div class="container-lg">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="#">Categories</a>
-                    <a class="nav-link" href="#">Stores</a>
-                    <a class="nav-link" href="#">Dalivery Method</a>
+                    <a class="nav-link" href="/categories">Categories</a>
                 </div>
         </div>
     </div>

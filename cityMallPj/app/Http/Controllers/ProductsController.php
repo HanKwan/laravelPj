@@ -168,4 +168,20 @@ class ProductsController extends Controller
             'cigaretteBrands',
         ));
     }
+
+    // for search
+    public function search(Request $request) {
+        $cart = FacadesCart::content();
+        $products = Product::where('product_name', 'like', '%'.$request->input('search').'%')->get();
+
+        return view('home.search', compact(
+            'products',
+            'cart',
+        ));
+    }
+
+    // categoreies
+    public function indexCate() {
+        return view('home.indexCate');
+    }
 }

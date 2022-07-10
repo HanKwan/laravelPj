@@ -43,3 +43,7 @@ Route::get('/Fashion', [ProductsController::class, 'showFashion']);
 Route::get('/Fresh/Produce', [ProductsController::class, 'indexGreen']);
 Route::get('/Fresh/Meat', [ProductsController::class, 'indexMeat']);
 Route::get('/Fresh', [ProductsController::class, 'showFresh']);
+
+Route::get('/categories', [ProductsController::class, 'indexCate']);
+
+Route::get('/search', [ProductsController::class, 'search']);
