@@ -11,16 +11,20 @@
                             <span>{{ $user->username }}</span> 
                         </div>
                         <div>
-                            @if (!$user->profile->followBy($user))
-                                <form action="/follow/{{ $user->id }}" method="post">
-                                    @csrf
-                                    <button class="py-1 px-2 text-white bg-blue-400 border-1 rounded" type="submit">Follow</button>
-                                </form>
+                            @if (auth()->user()->id === $user->profile->user_id)
+                                
                             @else
-                                <form action="/unfollow/{{ $user->id }}" method="post">
-                                    @csrf
-                                    <button class="py-1 px-2 text-white bg-blue-400 border-1 rounded" type="submit">Unfollow</button>
-                                </form>
+                                @if (!$user->profile->followBy($user))
+                                    <form action="/follow/{{ $user->id }}" method="post">
+                                        @csrf
+                                        <button class="py-1 px-2 text-white bg-blue-400 border-1 rounded" type="submit">Follow</button>
+                                    </form>
+                                @else
+                                    <form action="/unfollow/{{ $user->id }}" method="post">
+                                        @csrf
+                                        <button class="py-1 px-2 text-white bg-blue-400 border-1 rounded" type="submit">Unfollow</button>
+                                    </form>
+                                @endif
                             @endif
                         </div>
                     </div>                
